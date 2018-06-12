@@ -1,0 +1,24 @@
+{
+  "name": "amcat-common",
+  "authors": [
+    "Christian Stuart <christian.jac.stuart@gmail.com>"
+  ],
+  "description": "AmCAT JS common library",
+  "license": "AGPL-3",
+  "main": "",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.0",
+    "jquery": "^3.3.1",
+    "vue": "^2.5.16",
+    "datatables":  "git://github.com/amcat/amcat-datatables.git"
+  }
+}
