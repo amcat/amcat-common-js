@@ -24,7 +24,7 @@
  */
 "use strict";
 
-define(["jquery", "./amcat", "datatables"], function ($, amcat) {
+define(["jquery", "./amcat", "datatables", "./jquery.dataTables.plugins"], function ($, amcat) {
 
     amcat.datatables = {};
 
