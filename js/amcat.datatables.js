@@ -24,7 +24,7 @@
  */
 "use strict";
 
-define(["jquery", "datatables", "./jquery.dataTables.plugins", "./dataTables.bootstrap.js"], function ($) {
+define(["jquery", "datatables", "./jquery.dataTables.plugins", "./dataTables.bootstrap"], function ($) {
 
     const amcat = window.amcat === undefined ? (window.amcat = {}) : window.amcat;
     amcat.datatables = {};
