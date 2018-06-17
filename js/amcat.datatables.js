@@ -24,8 +24,9 @@
  */
 "use strict";
 
-define(["jquery", "./amcat", "datatables", "./jquery.dataTables.plugins"], function ($, amcat) {
+define(["jquery", "datatables", "./jquery.dataTables.plugins", "./dataTables.bootstrap.js"], function ($) {
 
+    const amcat = window.amcat === undefined ? (window.amcat = {}) : window.amcat;
     amcat.datatables = {};
 
     const TARGET_ERR = "You can't use number to target columns in columndefs, as " +
@@ -230,6 +231,9 @@ define(["jquery", "./amcat", "datatables", "./jquery.dataTables.plugins"], funct
 
             // Contains jQuery table element
             table: null,
+
+            // Callback for when the initial fetch fails.
+            onFetchedInitialError(jqXHR, statusText, errorThrown) { },
 
             // Contains fnServerData callbacks. It is an
             // sEcho : function mapping.
@@ -894,6 +898,7 @@ define(["jquery", "./amcat", "datatables", "./jquery.dataTables.plugins"], funct
      * TODO: Try again a few times before giving up.
      */
     amcat.datatables.fetched_initial_error = function (jqXHR, textStatus, errorThrown) {
+        this.onFetchedInitialError(jqXHR, textStatus, errorThrown);
         console.log(
             "Could not load table: " + this['name'] +
             ". You can find debugging information in the console."
