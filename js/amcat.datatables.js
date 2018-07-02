@@ -280,7 +280,7 @@ define(["jquery", "datatables", "./jquery.dataTables.plugins", "./dataTables.boo
             data: urldata[1],
             headers: {
                 "X-HTTP-METHOD-OVERRIDE": "OPTIONS",
-                "X-CSRFTOKEN": getCookieValue('csrftoken')
+                "X-CSRFTOKEN": getCookieValue(CSRF_COOKIE_NAME)
             },
             url: urldata[0],
             success: amcat.datatables.fetched_initial_success.bind(state),
@@ -430,7 +430,7 @@ define(["jquery", "datatables", "./jquery.dataTables.plugins", "./dataTables.boo
                 },
                 url: this.metadata.models[fieldname],
                 success: amcat.datatables.load_metadata_success.bind(ctx),
-                error: amcat.datatables.fetched_initial_error.bind(ctx)
+                error: amcat.datatables.fetched_initial_error.bind(ctx),
             });
         }
     };
@@ -524,7 +524,7 @@ define(["jquery", "datatables", "./jquery.dataTables.plugins", "./dataTables.boo
                     error: amcat.datatables.fetched_initial_error.bind(ctx),
                     headers: {
                         "X-HTTP-METHOD-OVERRIDE": "GET",
-                        "X-CSRFTOKEN": getCookieValue('csrftoken')
+                        "X-CSRFTOKEN": getCookieValue(CSRF_COOKIE_NAME)
                     },
                     data: {
                         pk: needed_labels,
@@ -689,7 +689,7 @@ define(["jquery", "datatables", "./jquery.dataTables.plugins", "./dataTables.boo
             data: urldata[1],
             headers: {
                 "X-HTTP-METHOD-OVERRIDE": "GET",
-                "X-CSRFTOKEN": getCookieValue('csrftoken')
+                "X-CSRFTOKEN": getCookieValue(CSRF_COOKIE_NAME)
             },
             url: urldata[0],
             success: amcat.datatables.table_objects_received.bind(this),
